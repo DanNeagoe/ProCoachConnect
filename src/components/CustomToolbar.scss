@@ -1,0 +1,35 @@
+.rbc-toolbar {
+  display: flex;
+  width: 100%;
+
+  align-items: center;
+  justify-content: center;
+  position: center;
+  padding: 3px;
+  background-color: rgba(240, 128, 128, 0.186);
+  .rbc-btn-group {
+    left: 0;
+    flex: 1 0 auto;
+    button {
+      color: #f3f3f3;
+      background-color: #870000;
+      padding: 5px 10px;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+    .ab {
+      margin-left: 0;
+    }
+    .today {
+      background-color: lightcoral;
+    }
+
+    .week {
+      background-color: lightcoral;
+    }
+
+    .agenda {
+      background-color: lightcoral;
+    }
+  }
+}

@@ -1,0 +1,95 @@
+.NavBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  background: #000000;
+  z-index: 1;
+  position: relative;
+
+  .welcomeMessage {
+    margin-left: 3%;
+    color: white;
+    font-size: clamp(12px, 150%, 19px);
+  }
+
+  ul {
+    font-style: unset;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    .buttonLeave {
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-size: 100%;
+      color: white;
+      padding: 0.1rem;
+      margin: 0 0.1rem;
+      border-radius: 0.5rem;
+      background-color: transparent;
+      border: transparent;
+    }
+    li {
+      padding: 0.5rem;
+      margin: 0 0.8rem;
+      border-radius: 0.5rem;
+      .navLink {
+        font-family: Georgia, "Times New Roman", Times, serif;
+        text-decoration: none;
+        color: white;
+      }
+      &:not(.active):hover {
+        background-color: red;
+      }
+      .active {
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        background-color: red;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .toggleMenuIcon {
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    ul {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.493);
+      top: 30px;
+      width: 100%;
+      left: 0;
+
+      li {
+        height: 40px;
+        margin-top: 10px;
+      }
+
+      &.open {
+        display: flex;
+      }
+    }
+  }
+
+  .profilePicture {
+    width: clamp(30px, 4vw, 60px);
+    height: clamp(30px, 4vw, 60px);
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid white;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .ratingComponent {
+    font-size: 5px;
+  }
+}

@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+.coachContainer {
+  height: 100vh;
+  width: 100vw;
+
+  .navBarCoach {
+    width: 100%;
+  }
+
+  .upContainer {
+    margin-top: 0.5%;
+
+    width: 100vw;
+
+    .secondUpContainer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      height: 25%;
+      .noStudents {
+        font-family: "Roboto", sans-serif;
+        margin-left: 1%;
+        font-size: 85%;
+        font-weight: bold;
+      }
+      .performance {
+        font-family: "Roboto", sans-serif;
+        margin-right: 1%;
+        font-size: 85%;
+        font-weight: bold;
+      }
+      .seeStudents {
+        margin-left: 1%;
+        box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+        border-radius: 10px;
+        background-color: #b10f0fc3;
+        width: auto;
+        color: white;
+        padding: 3px;
+        border: none;
+        margin-bottom: 6px;
+        font-size: 100%;
+      }
+    }
+  }
+
+  .secondDownContainer {
+    width: 100%;
+    height: 70px;
+    box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+    .gyms {
+      width: 100vw;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      .noGyms {
+        font-size: 135%;
+      }
+
+      .gym {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 110px;
+        height: 100%;
+        .gymPhoto {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+
+        .deleteGym {
+          size: 3%;
+          border: none;
+          background-color: transparent;
+          margin-left: 55%;
+          height: 0px;
+          width: auto;
+          color: red;
+        }
+      }
+
+      .addGymButton {
+        margin-top: 0.5%;
+        margin-bottom: 0.5%;
+        margin-right: 5px;
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+        border-radius: 30%;
+      }
+    }
+  }
+
+  .downContainer {
+    width: 100vw;
+    height: 90vh;
+    padding: 10px;
+    .agenda {
+      height: 100%;
+    }
+  }
+}

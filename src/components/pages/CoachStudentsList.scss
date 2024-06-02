@@ -1,0 +1,48 @@
+.contentGu {
+  height: 100vh;
+  width: 100vw;
+  overflow: auto;
+  background-size: cover;
+  .navBarStudents {
+    width: 10px;
+    height: 50px;
+  }
+  .contentF {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .studentsContent {
+      margin-top: 2%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 5%;
+      width: 38%;
+      box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+      padding: 0.5vw;
+      background-color: white;
+      border-radius: 15%;
+      .deleteUser {
+        border: none;
+        background-color: transparent;
+        margin-left: 85%;
+        cursor: pointer;
+      }
+      .studentsPhoto {
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      .addTrainButton {
+        margin-left: 0.5%;
+        margin-top: 0.5%;
+        color: #f3f3f3;
+        background-color: #870000;
+        padding: 2px 6px;
+        margin-right: 5px;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+    }
+  }
+}

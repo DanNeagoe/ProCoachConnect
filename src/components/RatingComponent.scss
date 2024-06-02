@@ -1,0 +1,20 @@
+.ratingComponent {
+  .starRating {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 2px;
+    p {
+      font-size: 70%;
+    }
+  }
+  .giveRating {
+    background-color: transparent;
+    font-size: 55%;
+    border: none;
+  }
+
+  .ratingCoach {
+    color: white;
+  }
+}

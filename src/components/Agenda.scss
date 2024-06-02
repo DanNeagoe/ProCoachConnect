@@ -1,0 +1,34 @@
+.ok {
+  max-height: calc(100vh - 210px);
+  .rbc-calendar {
+    min-height: 600px;
+  }
+  overflow: auto;
+  width: 100%;
+
+  .Calendar {
+    width: 100%;
+
+    margin: 0 auto;
+  }
+
+  .rbc-today {
+    background-color: lightcoral !important;
+  }
+
+  .rbc-event {
+    background-color: rgba(255, 0, 0, 0.712);
+
+    color: white;
+  }
+
+  .rbc-header {
+    color: white;
+
+    background-color: black;
+  }
+
+  .rbc-allday-cell {
+    display: none;
+  }
+}

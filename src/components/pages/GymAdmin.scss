@@ -1,0 +1,50 @@
+.gymAdmin {
+  position: relative;
+  height: 100vh;
+  align-items: center;
+  .UKU {
+    flex-direction: column;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    transform: translate(-35%, -40%);
+    width: 60%;
+    height: 60%;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+    border-style: solid;
+    border-color: red;
+
+    .containerEditProfilePhotoL {
+      border-radius: 50%;
+      width: 105px;
+      height: 100px;
+    }
+
+    .addGymPhoto {
+      margin-bottom: 30px;
+    }
+
+    input {
+      width: 60%;
+    }
+
+    button {
+      border: none;
+      border-radius: 10px;
+      background-color: brown;
+      color: white;
+      padding: 8px;
+    }
+
+    .deleteGym {
+      margin-top: 5px;
+      background-color: red;
+    }
+  }
+}
