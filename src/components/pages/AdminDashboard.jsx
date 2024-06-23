@@ -18,8 +18,23 @@ export const AdminDashboard = () => {
         navigate("/cautaUtilizatorAdmin")
     }
 
+    const handleLogout = () => {
+        const confirmDelete = window.confirm(
+            "Ești sigur că vrei să părăsești pagina?"
+        );
+        if (confirmDelete) {
+            localStorage.clear();
+            navigate("/");
+            window.history.pushState(null, document.title, window.location.href);
+            window.addEventListener('popstate', function (event) {
+                window.history.pushState(null, document.title, window.location.href);
+            });
+        }
+    }
+
     return (
         <div className="adminDashboard">
+            <button className="signOff" onClick={handleLogout}>Delogare</button>
             <div className="adminDashboardMainContainer">
                 <div className="adminDashboardContainer">
                     <div className="adminDashboardFirstContainer">
@@ -32,7 +47,7 @@ export const AdminDashboard = () => {
                 <div className="adminDashboardContainer">
                     <div className="adminDashboardFirstContainer">
 
-                        <button onClick={deleteChangeGyms}>MODIFICĂ/STERGE SALA🏢</button>
+                        <button onClick={deleteChangeGyms}>MODIFICĂ / STERGE SALA🏢</button>
                     </div>
                     <div className="adminDashboardSecondContainer">
 

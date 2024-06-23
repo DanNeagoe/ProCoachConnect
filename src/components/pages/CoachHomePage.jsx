@@ -163,10 +163,7 @@ export const CoachHomePage = () => {
               gyms.map((gym) => (
                 <div className="gym" key={gym.id} >
                   <button className="deleteGym" onClick={() => handleDeleteGym(gym.id)}>X</button>
-                  <img className="gymPhoto"
-                    src={gym.photo}
-                    alt={gym.name}
-                  />
+                  <img className="gymPhoto" src={gym.photo} alt={gym.name} />
                   <p>{gym.name}</p>
                 </div>
               ))

@@ -98,9 +98,18 @@ export const SearchBarCoachesAdmin = () => {
 
     };
 
+    const handleLogout = () => {
+        localStorage.clear();
+        navigate("/admin");
+        window.history.pushState(null, document.title, window.location.href);
+        window.addEventListener('popstate', function (event) {
+            window.history.pushState(null, document.title, window.location.href);
+        });
+    }
 
     return (
         <div className='containerSearchBar'>
+            <button className="backButton" onClick={handleLogout}>Înapoi</button>
             <p className="message">Selectează acum antrenorul pe care vrei sa il stergi!</p>
             <input className='inputSearchBar'
 

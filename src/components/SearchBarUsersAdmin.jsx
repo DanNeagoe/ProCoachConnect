@@ -8,65 +8,65 @@ export const SearchBarUsersAdmin = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [searchResults, setSearchResults] = useState([]);
     const navigate = useNavigate();
-    const [initialData, setInitialData] = useState({ coaches: [] });
+    const [initialData, setInitialData] = useState({ users: [] });
     const [userData, setUserData] = useState('');
-    const [storedTypeDada, setType] = useState("");
-    const [gyms, setGyms] = useState([]);
+    // const [storedTypeDada, setType] = useState("");
+    // const [gyms, setGyms] = useState([]);
 
-    const [user, setUser] = useState("");
-    const type = localStorage.getItem('type');
+    // const [user, setUser] = useState("");
+    // const type = localStorage.getItem('type');
 
 
-    useEffect(() => {
-        const storedTypeDada = localStorage.getItem("type");
-        if (storedTypeDada) {
-            setType(storedTypeDada);
-        }
-        if (storedTypeDada === "coach") {
-            const storedGyms = localStorage.getItem("gyms");
+    // useEffect(() => {
+    //     // const storedTypeDada = localStorage.getItem("type");
+    //     // if (storedTypeDada) {
+    //     //     setType(storedTypeDada);
+    //     // }
+    //     // if (storedTypeDada === "coach") {
+    //     //     const storedGyms = localStorage.getItem("gyms");
 
-            const storedUser = localStorage.getItem("user");
+    //     //     const storedUser = localStorage.getItem("user");
 
-            if (storedGyms) {
-                setGyms(JSON.parse(storedGyms));
-            }
+    //     //     if (storedGyms) {
+    //     //         setGyms(JSON.parse(storedGyms));
+    //     //     }
 
-            if (storedUser) {
-                setUser(JSON.parse(storedUser));
-            }
-        }
-        const storedUserData = localStorage.getItem("userData");
+    //     //     if (storedUser) {
+    //     //         setUser(JSON.parse(storedUser));
+    //     //     }
+    //     // }
+    //     const storedUserData = localStorage.getItem("userData");
 
-        if (storedUserData) {
-            setUserData(JSON.parse(storedUserData));
-        }
+    //     if (storedUserData) {
+    //         setUserData(JSON.parse(storedUserData));
+    //     }
 
-    }, []);
+    // }, []);
 
 
     useEffect(() => {
 
         const fetchData = async () => {
-            const cachedCoaches = localStorage.getItem('users');
+            const cachedUsers = localStorage.getItem('usersAdmin');
 
 
-            if (cachedCoaches) {
+            if (cachedUsers) {
                 setInitialData({
-                    coaches: JSON.parse(cachedCoaches),
+                    users: JSON.parse(cachedUsers),
 
                 });
             } else {
-                const coachsDocuments = await getDocs(collection(db, 'users'));
+                const usersDocuments = await getDocs(collection(db, 'users'));
 
 
-                let coaches = [];
+                let users = [];
 
 
-                coachsDocuments.forEach(doc => coaches.push({ id: doc.id, ...doc.data(), type: 'user' }));
+                usersDocuments.forEach(doc => users.push({ id: doc.id, ...doc.data(), type: 'user' }));
 
-                localStorage.setItem('coaches', JSON.stringify(coaches));
+                localStorage.setItem('users', JSON.stringify(users));
 
-                setInitialData({ coaches: coaches });
+                setInitialData({ users: users });
             }
         };
 
@@ -79,9 +79,9 @@ export const SearchBarUsersAdmin = () => {
             setSearchResults([]);
             return;
         }
-
-        const filteredUsers = initialData.coaches.filter(coach =>
-            coach.name.toLowerCase().includes(searchTerm.toLowerCase())
+        console.log(initialData.users);
+        const filteredUsers = initialData.users.filter(user =>
+            user.name && user.name.toLowerCase().includes(searchTerm.toLowerCase())
         );
         setSearchResults([...filteredUsers]);
     }, [searchTerm, initialData]);
@@ -91,23 +91,32 @@ export const SearchBarUsersAdmin = () => {
     };
 
     const handleSelectResult = async (result) => {
-        localStorage.setItem('coachId', JSON.stringify(result.id))
-        const coachData = initialData.coaches.find(coach => coach.id === result.id);
-        localStorage.setItem('coachData', JSON.stringify(coachData))
+        localStorage.setItem('userId', JSON.stringify(result.id))
+        const userData = initialData.users.find(user => user.id === result.id);
+        localStorage.setItem('userData', JSON.stringify(userData))
         navigate("/stergeUtilizatorAdmin");
 
     };
 
+    const handleLogout = () => {
+        localStorage.clear();
+        navigate("/admin");
+        window.history.pushState(null, document.title, window.location.href);
+        window.addEventListener('popstate', function (event) {
+            window.history.pushState(null, document.title, window.location.href);
+        });
+    }
 
     return (
         <div className='containerSearchBar'>
-            <p className="message">Selectează acum antrenorul pe care vrei sa il stergi!</p>
+            <button className="backButton" onClick={handleLogout}>Înapoi</button>
+            <p className="message">Selectează acum utilizatorul pe care vrei sa îl ștergi!</p>
             <input className='inputSearchBar'
 
                 type="text"
                 value={searchTerm}
                 onChange={handleSearchChange}
-                placeholder="Cauta antrenorul pe care vrei sa il stergi..."
+                placeholder="Caută utilizatorul pe care vrei să îl ștergi..."
             />
             <div className='searchBar'>
                 {searchResults.length > 0 ? (

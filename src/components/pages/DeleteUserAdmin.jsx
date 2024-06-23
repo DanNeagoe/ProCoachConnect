@@ -11,8 +11,8 @@ import { getAuth, deleteUser } from "firebase/auth";
 //import firebase from "./default-namespace";
 //import admin from 'firebase-admin';
 export const DeleteUserAdmin = () => {
-    let [coachPhoto, setCoachPhoto] = useState("");
-    let [coachName, setCoachName] = useState("");
+    let [coachPhoto, setUserPhoto] = useState("");
+    let [coachName, setUserName] = useState("");
     let [coachId, setCoachId] = useState("");
     let [users, setUsers] = useState("")
     let [coachData, setCoachData] = useState("");
@@ -20,19 +20,20 @@ export const DeleteUserAdmin = () => {
     useEffect(() => {
         let storageUserData = localStorage.getItem("userData")
         let storageUserId = localStorage.getItem('userId')
-        const storageCoaches = localStorage.getItem("usersAdmin");
+        const storageUsers = localStorage.getItem("usersAdmin");
 
         setCoachData(JSON.parse(storageUserData))
-        if (storageCoaches) {
-            setUsers(JSON.parse(storageCoaches));
+        console.log(storageUserData);
+        if (storageUsers) {
+            setUsers(JSON.parse(storageUsers));
         }
         if (storageUserId) {
             setCoachId(JSON.parse(storageUserId));
         }
 
-        setCoachPhoto(JSON.parse(storageUserData).photo);
+        setUserPhoto(JSON.parse(storageUserData).photo);
 
-        setCoachName(JSON.parse(storageUserData).name);
+        setUserName(JSON.parse(storageUserData).name);
 
 
     }, []);

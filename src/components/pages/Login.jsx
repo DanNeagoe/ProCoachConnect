@@ -113,7 +113,7 @@ export const Login = () => {
                     }
                 }
             }
-            setError(true);
+            setError("Contul dumneavoastră a fost șters");
         } catch (error) {
             let errorMessage = 'Adresa de email sau parola sunt greșite';
             setError(errorMessage);

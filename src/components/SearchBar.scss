@@ -4,6 +4,18 @@
   align-items: center;
   height: 100vh;
 
+  .backButton {
+    align-self: flex-start;
+    width: 60px;
+    height: 30px;
+    border-radius: 10px;
+    box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+    border-radius: 40px;
+    border-color: red;
+    background-color: rgba(255, 0, 0, 0.558);
+    color: white;
+  }
+
   .message {
     width: 100%;
     margin: 0.1vw;

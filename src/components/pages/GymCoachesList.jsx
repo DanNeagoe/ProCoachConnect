@@ -18,7 +18,7 @@ export const GymCoachesList = () => {
 
   useEffect(() => {
     fetchData();
-  },);
+  }, []);
 
   const fetchData = async () => {
     const storedGymId = JSON.parse(localStorage.getItem("gymId"));
